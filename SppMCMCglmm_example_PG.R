@@ -1,12 +1,10 @@
-##R-code associated with Bayesian phylogenetic mixed models (MCMCglmm analysis) with parasite infection status as the response variable #and various host ecological and morphological traits as the predictor variables. Models were run separately for Plasmodium and #Haemoproteus parasites.
-
 library(MCMCglmm); library(ape)
 library(lattice); library(plotMCMC); library(scape)
 library(coda); library(ggplot2); library(dplyr)
 library(MuMIn); library(gdata)
 library(RColorBrewer);library(png);library(TeachingDemos)
 library(xlsx); library(broom.mixed)
-
+#Run MCMCglmm_functions.R before running this code.
 
 resMCMC.List=list(P=list(),H=list())
 
