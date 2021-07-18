@@ -6,5 +6,5 @@ This repository describes the [R code](SppMCMCglmm_example_PG.R) that accompanie
 For both *Plasmodium* and *Haemoproteus*, I started with a fully parameterized model including all predictors and then ran subsequent reduced models by excluding non-significant predictors, one at a time based on *P*-values. For more details on the MCMCglmm approach, please read the methods section of the published paper.
 
 An example of the dataset (subset of the full dataset) used to run the code is given below
-1. [Prevalence data](IndSpGeoData_example.csv) - A dataframe containing parasite prevalence data and various ecological and morphometric traits tested.
-2. [Phylogeny](sp_ultraTree.tre) - Host phylogeny file
+1. [Prevalence data](Prevalence_data_example.csv) - A dataframe containing parasite prevalence data and various ecological and morphometric traits tested.
+2. [Phylogeny](species_tree.tre) - Host phylogeny file
