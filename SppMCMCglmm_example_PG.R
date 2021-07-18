@@ -5,7 +5,7 @@ library(MuMIn); library(gdata)
 library(RColorBrewer);library(png);library(TeachingDemos)
 library(xlsx); library(broom.mixed)
 
-##Run MCMCglmm_functions.R before running this code.
+##Run MCMCglmm_functions.R (located in the main repository) before running this code.
 
 resMCMC.List=list(P=list(),H=list())
 
