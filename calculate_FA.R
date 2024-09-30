@@ -4,7 +4,7 @@ library(dplyr)
 library(tidyr)
 
 # Load your dataset (modify the path as needed)
-data <- read.csv("example_avm_data_PG.csv")
+data <- read.csv("example_FA_data.csv")
 
 # Select relevant columns for left and right tarsus measurements, species, and Major.Loc (trapping site)
 # Similar approach can be used for wing measurements
