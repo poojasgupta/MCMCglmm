@@ -1,0 +1,30 @@
+## Fluctuating Asymmetry (FA) Calculation for Tarsus Measurements
+
+This script calculates fluctuating asymmetry (FA) for tarsus measurements in birds based on both left and right side measurements. The analysis is conducted using a linear mixed-effects model, controlling for individual variation, species, and trapping site differences.
+
+### Methods:
+Briefly, we first generate a variable `Side`, where values are set to `-1` for right-side tarsus measurements and `1` for left-side tarsus measurements. The fixed effects in the model include **Species**, **Trapping Site (Major.Loc)**, and **Side**. These fixed effects account for the average (intercept) values of the measurements for each species and site, while the **Side** variable estimates the level of **directional asymmetry** (DA) through the fixed intercept.
+
+The random effects structure includes a random intercept for each individual, capturing deviations from the fixed intercept (i.e., individual-specific size differences). Additionally, a random slope for the **Side** variable within each individual is included. This random slope estimates the magnitude of **fluctuating asymmetry (FA)** for tarsus measurements within each individual, after controlling for other factors like individual-, species-, and site-specific differences in size and magnitude of directional asymmetry.
+
+### Steps:
+1. **Data Preparation:**
+   - The dataset includes left (`Left.T1`, `Left.T2`, `Left.T3`) and right (`Right.T1`, `Right.T2`, `Right.T3`) tarsus measurements, along with species and trapping site data.
+   - The data is reshaped from wide to long format, separating left and right tarsus measurements into separate rows with a `Side` variable indicating the measurement's side (left or right).
+
+2. **Linear Mixed-Effects Model:**
+   - A linear mixed-effects model is fitted using the `lme4` package.
+   - **Fixed effects**: Species, trapping site (Major.Loc), and Side (to estimate directional asymmetry).
+   - **Random effects**: A random intercept for each individual and a random slope for Side within each individual. The random slope of Side estimates fluctuating asymmetry (FA) for each individual.
+
+3. **FA Calculation:**
+   - The absolute value of the random slope for Side is extracted as the FA value for each individual, measuring the magnitude of asymmetry for tarsus measurements after controlling for species and site effects.
+   - These FA values are merged back into the original dataset, adding an `FA` column to the original data.
+
+4. **Output:**
+   - The final dataset includes the original columns and a new `FA` column containing each individual's fluctuating asymmetry value for tarsus measurements.
+
+### Requirements:
+- **R Packages:** 
+  - `lme4` for linear mixed-effects modeling
+  - `dplyr` and `tidyr` for data manipulation
